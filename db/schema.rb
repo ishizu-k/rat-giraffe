@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190618082416) do
+ActiveRecord::Schema.define(version: 20190618103214) do
 
   create_table "rents", force: :cascade do |t|
-    t.string   "property_name"
-    t.string   "fee"
-    t.string   "address"
-    t.string   "age"
     t.string   "note"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "property_name", default: "", null: false
+    t.string   "fee",           default: "", null: false
+    t.string   "address",       default: "", null: false
+    t.string   "age",           default: "", null: false
   end
 
 end
