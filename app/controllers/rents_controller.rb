@@ -8,6 +8,7 @@ class RentsController < ApplicationController
 
   def create
     Rent.create(rent_params)
+    redirect_to rents_path
   end
 
   def show
@@ -27,5 +28,4 @@ class RentsController < ApplicationController
   def rent_params
     params.require(:rent).permit(:property_name, :fee, :address, :age, :note)
   end
-
 end
