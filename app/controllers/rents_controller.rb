@@ -4,11 +4,18 @@ class RentsController < ApplicationController
 
   def new
     @rent = Rent.new
+    @rent.stations.build
   end
 
   def create
-    Rent.create(rent_params)
-    redirect_to rents_path
+    @rent = Rent.new(rent_params)
+#    @station = Station.new(station_params)
+#    @station.rent_id = current_rent.id
+    if @rent.save
+      redirect_to rents_path
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -26,6 +33,11 @@ class RentsController < ApplicationController
   private
 
   def rent_params
-    params.require(:rent).permit(:property_name, :fee, :address, :age, :note)
+    params.require(:rent).permit(:id, :property_name, :fee, :address, :age, :note, stations_attributes: [:id, :rent_id,:line_name, :station_name, :walk])
   end
+
+#  def station_params
+#    params.require(:station).permit(:line_name, :station_name, :walk)
+#  end
+
 end
