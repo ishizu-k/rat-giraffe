@@ -3,6 +3,7 @@ class RentsController < ApplicationController
   end
 
   def new
+    @rent = Rent.new
   end
 
   def create
