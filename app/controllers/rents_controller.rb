@@ -18,6 +18,7 @@ class RentsController < ApplicationController
   end
 
   def show
+    @rent = Rent.find(params[:id])
   end
 
   def edit

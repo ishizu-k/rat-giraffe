@@ -1,0 +1,39 @@
+<table>
+  <tr>
+    <th>物件名：</th>
+    <td><%= @rent.property_name %></td>
+  </tr>
+  <tr>
+    <th>賃料：</th>
+    <td><%= @rent.fee %>円</td>
+  </tr>
+  <tr>
+    <th>住所：</th>
+    <td><%= @rent.address %></td>
+  </tr>
+  <tr>
+    <th>築年数：</th>
+    <td><%= @rent.age %>年</td>
+  </tr>
+  <tr>
+    <th>備考：</th>
+    <td><%= @rent.note %></td>
+  </tr>
+</table>
+
+<hr>
+
+<table>
+  <tr>
+    <th>路線名：</th>
+    <td> @rent.stations.line_name </td>
+  </tr>
+  <tr>
+    <th>駅名：</th>
+    <td><%= @rent.stations %></td>
+  </tr>
+  <tr>
+    <th>徒歩分数：</th>
+    <td><%= @rent.stations %></td>
+  </tr>
+</table>
