@@ -7,6 +7,7 @@ class RentsController < ApplicationController
   end
 
   def create
+    Rent.create(rent_params)
   end
 
   def show
@@ -19,6 +20,12 @@ class RentsController < ApplicationController
   end
 
   def delete
+  end
+
+  private
+
+  def rent_params
+    params.require(:rent).permit(:property_name, :fee, :address, :age, :note)
   end
 
 end
