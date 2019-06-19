@@ -1,1 +1,23 @@
 <h1>物件一覧</h1>
+
+<table>
+  <tr>
+    <th>物件名</th>
+    <th>賃料</th>
+    <th>住所</th>
+    <th>築年数</th>
+    <th>備考</th>
+  </tr>
+
+<% @rents.each do |rent| %>
+  <tr>
+    <td><%= rent.property_name %></td>
+    <td><%= rent.fee %>円</td>
+    <td><%= rent.address %></td>
+    <td><%= rent.age %>年</td>
+    <td><%= rent.note %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= link_to '物件を登録する', new_rent_path %>

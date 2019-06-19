@@ -1,5 +1,6 @@
 class RentsController < ApplicationController
   def index
+    @rents = Rent.all
   end
 
   def new
@@ -9,8 +10,6 @@ class RentsController < ApplicationController
 
   def create
     @rent = Rent.new(rent_params)
-#    @station = Station.new(station_params)
-#    @station.rent_id = current_rent.id
     if @rent.save
       redirect_to rents_path
     else
