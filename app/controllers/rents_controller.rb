@@ -7,7 +7,7 @@ class RentsController < ApplicationController
 
   def new
     @rent = Rent.new
-    @rent.stations.build
+    2.times { @rent.stations.build }
   end
 
   def create
@@ -20,7 +20,6 @@ class RentsController < ApplicationController
   end
 
   def show
-    @station = @rent.stations.find(params[:id])
   end
 
   def edit
