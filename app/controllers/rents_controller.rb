@@ -19,6 +19,7 @@ class RentsController < ApplicationController
 
   def show
     @rent = Rent.find(params[:id])
+    @station = @rent.stations.find(params[:id])
   end
 
   def edit

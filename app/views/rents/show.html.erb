@@ -23,17 +23,20 @@
 
 <hr>
 
+<h3>最寄り駅1</h3>
 <table>
   <tr>
     <th>路線名：</th>
-    <td> @rent.stations.line_name </td>
+    <td><%= @station.line_name %></td>
   </tr>
   <tr>
     <th>駅名：</th>
-    <td><%= @rent.stations %></td>
+    <td><%= @station.station_name %></td>
   </tr>
   <tr>
     <th>徒歩分数：</th>
-    <td><%= @rent.stations %></td>
+    <td><%= @station.walk %>分</td>
   </tr>
 </table>
+<br>
+編集 | <%= link_to '戻る', rents_path %>
