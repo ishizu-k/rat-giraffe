@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <th>備考</th>
-    <td><%= @rent.note %></td>
+    <td class="note"><%= @rent.note %></td>
   </tr>
 </table>
 
@@ -42,4 +42,4 @@
 <% end %>
 
 <br>
-<%= link_to '編集', edit_rent_path(@rent.id) %> | <%= link_to '戻る', rents_path %>
+<%= link_to :編集, edit_rent_path(@rent.id) %> | <%= link_to :戻る, rents_path %>
