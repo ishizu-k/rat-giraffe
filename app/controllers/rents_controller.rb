@@ -35,7 +35,10 @@ class RentsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @rent = Rent.find(params[:id])
+    @rent.destroy
+    redirect_to rents_path
   end
 
   private
@@ -43,9 +46,4 @@ class RentsController < ApplicationController
   def rent_params
     params.require(:rent).permit(:id, :property_name, :fee, :address, :age, :note, stations_attributes: [:id, :rent_id,:line_name, :station_name, :walk])
   end
-
-#  def station_params
-#    params.require(:station).permit(:line_name, :station_name, :walk)
-#  end
-
 end

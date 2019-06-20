@@ -18,6 +18,7 @@
     <td><%= rent.note %></td>
     <td><%= link_to '詳細', rent_path(rent.id) %></td>
     <td><%= link_to '編集', edit_rent_path(rent.id) %></td>
+    <td><%= link_to '削除', rent_path(rent.id), method: :delete %></td>
   </tr>
 <% end %>
 </table>
