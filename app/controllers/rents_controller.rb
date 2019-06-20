@@ -1,4 +1,6 @@
 class RentsController < ApplicationController
+  before_action :set_rent, only: [:show, :edit, :update, :destroy]
+
   def index
     @rents = Rent.all
   end
@@ -18,16 +20,13 @@ class RentsController < ApplicationController
   end
 
   def show
-    @rent = Rent.find(params[:id])
     @station = @rent.stations.find(params[:id])
   end
 
   def edit
-    @rent = Rent.find(params[:id])
   end
 
   def update
-    @rent = Rent.find(params[:id])
     if @rent.update(rent_params)
       redirect_to rents_path
     else
@@ -36,7 +35,6 @@ class RentsController < ApplicationController
   end
 
   def destroy
-    @rent = Rent.find(params[:id])
     @rent.destroy
     redirect_to rents_path
   end
@@ -45,5 +43,9 @@ class RentsController < ApplicationController
 
   def rent_params
     params.require(:rent).permit(:id, :property_name, :fee, :address, :age, :note, stations_attributes: [:id, :rent_id,:line_name, :station_name, :walk])
+  end
+
+  def set_rent
+    @rent = Rent.find(params[:id])
   end
 end
