@@ -1,0 +1,45 @@
+<table>
+  <tr>
+    <th>物件名：</th>
+    <td><%= @rent.property_name %></td>
+  </tr>
+  <tr>
+    <th>賃料：</th>
+    <td><%= @rent.fee %>円</td>
+  </tr>
+  <tr>
+    <th>住所：</th>
+    <td><%= @rent.address %></td>
+  </tr>
+  <tr>
+    <th>築年数</th>
+    <td><%= @rent.age %>年</td>
+  </tr>
+  <tr>
+    <th>備考</th>
+    <td class="note"><%= @rent.note %></td>
+  </tr>
+</table>
+
+<hr>
+
+<% @rent.stations.each.with_index(1) do |station, index| %>
+  <h3>最寄り駅<%= "#{index}" %></h3>
+  <table>
+    <tr>
+      <th>路線名</th>
+      <td><%= station.line_name %></td>
+    </tr>
+    <tr>
+      <th>駅名</th>
+      <td><%= station.station_name %></td>
+    </tr>
+    <tr>
+      <th>徒歩分数</th>
+      <td><%= station.walk %>分</td>
+    </tr>
+  </table>
+<% end %>
+
+<br>
+<%= link_to :編集, edit_rent_path(@rent.id) %> | <%= link_to :戻る, rents_path %>
