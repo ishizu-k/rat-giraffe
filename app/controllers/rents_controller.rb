@@ -41,7 +41,7 @@ class RentsController < ApplicationController
   private
 
   def rent_params
-    params.require(:rent).permit(:id, :property_name, :fee, :address, :age, :note, stations_attributes: [:id, :rent_id,:line_name, :station_name, :walk])
+    params.require(:rent).permit(:id, :property_name, :fee, :address, :age, :note, stations_attributes: %i(id rent_id line_name station_name walk))
   end
 
   def set_rent
